@@ -1,0 +1,371 @@
+@font-face {
+    font-family: "Otomanopee One";
+    src: url("../fonts/OtomanopeeOne-Regular.ttf")
+}
+
+@font-face {
+    font-family: "Open-Sans";
+    src: url("../fonts/OpenSans-Regular.ttf")
+}
+
+body{
+    margin: 0;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 70% 30%;
+    justify-items: center;
+}
+
+/* --------------------CONTAINER ARTICLE ---------- */
+.article-img_container{
+    display: flex;
+    justify-content: center;
+    min-height: 400px;
+    border-radius: 10px;
+}
+
+.article-releaseDate_container{
+    display: flex;
+    justify-content: flex-end;
+    padding: 5px;
+}
+
+.article-btn-container{
+    display: flex;
+    justify-content: center;
+}
+
+
+.article-btn-container a {
+    background: rgba(216, 58, 86, 1);
+    cursor: pointer;
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.3s;
+    color: #ffffff;
+    border-radius: 5px;
+    height: 100%;
+    text-decoration: none;
+    font-family: Otomanopee One, sans-serif;
+}
+
+.article-btn-container a:hover {
+    color: #ffffff;
+    padding: 20px 55px;
+}
+
+.article-describe_container{
+    padding: 10px 20px;
+}
+
+.article-title_container{
+    padding: 0 20px 10px 20px;
+}
+
+/* -------------------- COMMENT-BOX ---------- */
+aside{
+    height: 100vh;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+aside h3{
+    margin: inherit;
+    padding: 5px;
+    font-size: 2rem;
+    color: #D83A56;
+    border-bottom: #D83A56 1px solid;
+    text-align: center;
+    font-family: Open-Sans, serif;
+}
+
+
+aside form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 25px;
+}
+
+aside form label {
+    align-self: flex-start;
+    border-bottom: 1px #000000 solid;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    font-family: Open-Sans, serif;
+}
+
+.form-sendbox{
+    display: flex;
+}
+
+.form-sendbox textarea{
+    resize: none;
+    outline: none;
+    width: 80%;
+    font-family: Open-Sans, sans-serif;
+}
+
+
+.form-sendbox img {
+    width: 40px;
+    transition: 0.3s;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.form-sendbox img:hover{
+    width: 45px;
+}
+
+aside h4{
+    font-weight: normal;
+    border-bottom: 1px #000000 solid;
+    font-size: 1.2rem;
+    font-family: Open-Sans, serif;
+}
+
+.user-comments_box{
+    display: flex;
+    flex-direction: column;
+    background: #D83A56;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 5px;
+    align-self: flex-end;
+    width: 80%;
+    box-shadow:
+            rgba(50, 50, 93, 0.25) 0 30px 60px -12px inset,
+            rgba(0, 0, 0, 0.3) 0 18px 36px -18px inset;
+}
+
+.user-comments_box span {
+    font-size: 1rem;
+    color: #ffffff;
+    margin: 4px;
+    font-family: Open-Sans, serif;
+    word-break: break-word;
+}
+
+.user-comments_box .username{
+    font-size: 1.1rem;
+    padding-bottom: 2px;
+    border-bottom: solid 1px #ffffff;
+}
+
+.user-comments_box .createdAt{
+    align-self: flex-end;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.help-text_comment {
+    font-size: 0.8rem;
+    color: #ffffff;
+    margin: 5px 0;
+    padding: 10px 7px;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: rgba(50, 50, 93, 0.25) 0 30px 60px -12px inset;
+    border-radius: 5px;
+    font-family: Open-Sans, serif;
+    animation-name: displayHelper;
+    animation-duration: .7s;
+}
+
+@keyframes displayHelper { from {opacity: 0;} to { opacity: 1;} }
+
+
+/* ARTICLES */
+.article-title_container h1{
+    margin: inherit;
+    color: #D83A56;
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: Otomanopee One, serif;
+}
+
+.article-describe_container h2 {
+    font-size: 1.2rem;
+    margin: 0;
+    font-family: Open-Sans, serif;
+}
+
+.article-releaseDate_container span{
+    text-decoration: underline;
+    font-size: 0.9rem;
+    font-style: italic;
+    font-family: Open-Sans, serif;
+}
+
+.article-img_container img{
+    width: 70%;
+    padding: 15px;
+}
+
+@media screen and (max-width: 1450px) {
+    main{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    article{
+        width: 70%;
+    }
+
+    aside{
+        width: 50%;
+        height: auto;
+        overflow-y: inherit;
+        margin-top: 15px;
+    }
+
+    .article-img_container img {
+        width: 100%;
+    }
+
+    .article-describe_container h2{
+        font-size: 1rem;
+    }
+
+    .article-releaseDate_container span{
+        font-size: 0.8rem;
+    }
+
+    .comment-form{
+        align-items: inherit;
+    }
+
+    .article-btn-container a {
+        padding: 15px 35px;
+    }
+
+    .article-btn-container a:hover{
+        padding: 15px 42px;
+    }
+}
+
+@media screen and (max-width: 1100px){article{width:100%;}}
+
+@media screen and (max-width: 900px) {
+    article{
+        width: 100%;
+    }
+
+    aside{
+        width: 70%;
+    }
+
+    .article-btn-container a{
+        padding: 15px 25px
+    }
+
+    .article-btn-container a:hover{
+        padding: 15px 32px
+    }
+
+    .article-title_container h1{
+        font-size: 1.7em;
+    }
+
+    .article-describe_container h2{
+        font-size: 1rem;
+        padding-left: 0;
+    }
+
+    .article-img_container img{
+        width: 100%;
+    }
+
+    .article-releaseDate_container{
+        margin-right: 15px;
+    }
+}
+
+@media screen and (max-width: 650px){
+    .article-btn-container a{
+        font-size: 0.8em;
+        padding: 10px 25px
+    }
+
+    .article-btn-container a:hover{
+        padding: 10px 25px
+    }
+
+    .article-title_container h1{
+        font-size: 1.4rem;
+    }
+
+    .article-releaseDate_container span, .help-text_comment, .user-comments_box span:last-of-type{
+        font-size: 0.7rem;
+    }
+
+    .article-img_container{
+        min-height: inherit;
+    }
+
+    aside {
+        margin-top: 10px;
+        width: 90%;
+        border: none;
+    }
+
+    aside h3{
+        font-size: 1.8rem;
+    }
+
+    aside form label, aside h4{
+        font-size: 1rem;
+    }
+
+    .form-sendbox textarea{
+        font-size: 0.8rem;
+    }
+
+    .user-comments_box{
+        width: 80%;
+    }
+
+    .user-comments_box span:first-of-type, .user-comments_box span,  .article-describe_container h2{
+        font-size: 0.9rem;
+    }
+}
+
+
+@media screen and (max-width: 500px) {
+    .article-title_container, .article-describe_container {
+        padding: 0 8px;
+        margin-bottom: 8px;
+    }
+
+    .article-describe_container h2 {
+        font-size: 1rem;
+    }
+
+    .article-btn-container a {
+        font-size: 0.7rem;
+        margin: 3px;
+        padding: 8px 15px;
+    }
+
+    .article-btn-container a:hover{
+        padding: 8px 15px;
+    }
+
+    aside{
+        width: 90%;
+        border-top: #D83A56 1px solid;
+        border-radius: inherit;
+    }
+
+    aside h3 {
+        margin: 0;
+        padding: 10px;
+    }
+}

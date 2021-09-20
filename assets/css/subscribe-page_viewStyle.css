@@ -1,0 +1,207 @@
+@font-face {
+    font-family: "Otomanopee One";
+    src: url("../fonts/OtomanopeeOne-Regular.ttf")
+}
+@font-face {
+    font-family: "Open Sans";
+    src: url("../fonts/OpenSans-Regular.ttf")
+}
+
+body{
+    margin: 0;
+}
+
+main{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: rgba(216, 58, 86, 0.7);
+}
+
+form{
+    display: grid;
+    grid-template-rows: repeat(4,1fr);
+    align-items: center;
+    border-radius: 10px;
+    width: 40%;
+    background: #D83A56;
+    height: 70%;
+}
+
+.container_title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container_title img{
+    height: 100px;
+    width: 90px;
+}
+
+.container_title h1{
+    font-size: 2.7rem;
+    color: #ffffff;
+    font-weight: bold;
+    font-family: Otomanopee One, sans-serif;
+    padding-bottom: 6px;
+    border-bottom: 2px solid #ffffff;
+}
+
+.container-text{
+    align-self: flex-start;
+}
+
+.container-text p{
+    font-size: 1.2rem;
+    font-family: Open-Sans, sans-serif;
+    text-align: center;
+    color: #ffffff;
+    margin: 5px 0;
+    padding: 0 10px;
+}
+
+.input_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.input_container label{
+    font-family: Open-Sans, sans-serif;
+    font-size: 0.9rem;
+    color: #ffffff;
+}
+
+.input_container input {
+    font-family: Open-Sans, sans-serif;
+    outline: none;
+    margin-top: 10px;
+    width: 70%;
+    height: 50px;
+    background-color: rgb(232, 232, 232);
+    border-radius: 5px;
+    font-size: 1.2rem;
+    text-align: center;
+    animation-name: anim;
+    animation-duration: 0.3s;
+}
+
+@keyframes anim {
+    from{
+        transform: rotateX(180deg);
+    } to {
+        transform: rotateX(0);
+    }
+}
+
+.btn-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.counter_text{
+    font-family: Open-Sans, sans-serif;
+    font-size: 1.2rem;
+    color: #ffffff;
+    text-align: center;
+}
+
+button{
+    background-color: #D83A56;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+    padding: 10px 55px;
+    cursor: pointer;
+    font-family: Open-Sans, sans-serif;
+    font-size: 1.2rem;
+    transition: .3s;
+}
+
+button:hover {
+    background: #ffffff;
+    color: #D83A56;
+    padding: 10px 60px;
+    border: none;
+}
+
+@media screen and (max-width: 1750px){
+    .container_title h1{
+        font-size: 2.3rem;
+    }
+
+    .container-text p, button, .counter_text {
+        font-size: 1rem;
+    }
+
+}
+
+@media screen and (max-width: 1500px) {
+    form{
+        width: 70%;
+        height: 70%;
+    }
+
+    .input_container input{
+        width: 50%;
+    }
+
+    .container-text{
+        width: 70%;
+        align-self: center;
+        justify-self: center;
+    }
+
+    .container_title img{
+        height: 70px;
+        width: auto;
+    }
+
+    .btn-container{
+        width: 50%;
+        justify-self: center;
+    }
+}
+
+@media screen and (max-width: 850px){
+    form{
+        width: 100%;
+        height: 100%;
+        border-radius: inherit;
+    }
+
+    .container_title{
+        flex-direction: column;
+    }
+
+
+    .container_title img{
+        height: 110px;
+        width: auto;
+    }
+
+    .input_container input, .btn-container, .container-text{
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .container_title img{
+        height: 120px;
+    }
+
+    .container_title h1{
+        width: 80%;
+        font-size: 1.9rem;
+        text-align: center;
+    }
+
+    .container-text p, button, .counter_text  {
+        font-size: 0.9rem;
+    }
+}

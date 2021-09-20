@@ -1,0 +1,172 @@
+main{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+aside {
+    display: flex;
+    align-items: center;
+    width: 70%;
+    justify-content: flex-start;
+}
+
+.container-filter_nbrPerPage{
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container-filter_nbrPerPage label{
+    font-family: Open-Sans, serif;
+    color: #D83A56;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.container-filter_nbrPerPage select{
+    width: 50px;
+}
+
+.container-list{
+    display: flex;
+    align-items: center;
+    border: #E4EFE7 1px solid;
+    height: auto;
+    margin-top: 12px;
+    border-radius: 5px;
+    width: 70%;
+}
+
+.container-list:hover{
+    font-weight: bold;
+}
+
+
+.container-list a{
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-family: Open-Sans, serif;
+    color: #D83A56;
+    margin-left: 30px;
+}
+
+
+.container-list img{
+    border-radius: 5px 0 0 5px;
+    width: 140px;
+    height: 100px;
+}
+
+
+.pagination-container{
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.pagination-container a {
+    margin-right: 3px;
+    text-decoration: none;
+    color: #D83A56;
+    font-size: 1.3rem;
+}
+
+.pagination-container a:hover{
+    font-size: 1.5rem;
+}
+
+.btn-retour_text{
+    transition: 0.3s;
+    text-transform: uppercase;
+    padding: 12px 15px;
+    background: #D83A56;
+    margin: 10px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: Otomanopee One, sans-serif;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.btn-retour_text:hover{
+    padding: 12px 30px;
+}
+
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 950px) {
+    aside {
+        justify-content: space-between;
+        padding: 10px 0;
+    }
+
+    .container-filter_nbrPerPage{
+        flex-direction: row;
+        margin-right: 0;
+    }
+
+    .container-filter_nbrPerPage label{
+        margin-right: 10px;
+    }
+
+    .container-list{
+        width: 100%;
+        height: auto;
+    }
+
+    .container-list a{
+        margin-left: 15px;
+        font-size: 1.2rem;
+    }
+
+    .container-list img{
+        height: 70px;
+        width: 100px;
+    }
+
+    .btn-retour_text{
+        font-size: 0.9rem;
+    }
+
+    .pagination-container a{
+        font-size: 1.1rem;
+    }
+}
+
+@media screen and (max-width: 720px){aside{ width: 100%;}}
+
+@media screen and (max-width: 550px) {
+    aside{
+        justify-content: space-around;
+        width: 100%;
+    }
+
+    #authorLink {
+        width: 170px;
+    }
+
+    .container-list{
+        height: 90px;
+    }
+
+    .container-list:hover{
+        font-weight: normal;
+    }
+
+    .container-list a{
+        font-size: 1.1rem;
+        padding: 5px 0;
+    }
+
+    .container-list img{
+        height: 100%;
+    }
+
+    .btn-retour_text:hover{
+        padding: 12px 15px;
+    }
+}

@@ -174,11 +174,22 @@ aside h4{
     box-shadow: rgba(50, 50, 93, 0.25) 0 30px 60px -12px inset;
     border-radius: 5px;
     font-family: Open-Sans, serif;
-    animation-name: displayHelper;
-    animation-duration: .7s;
 }
 
-@keyframes displayHelper { from {opacity: 0;} to { opacity: 1;} }
+.no-comment-text{
+    color: #ffffff;
+    font-size: 1rem;
+    font-family: Open-Sans, serif;
+    text-align: center;
+    padding: 10px 7px;
+    background: #D83A56;
+    border-radius: 5px;
+    width: 60%;
+    align-self: center;
+    transition: all 1s;
+}
+
+@keyframes displayHelper { from {opacity: 0;} to {opacity: 1;} }
 
 
 /* ARTICLES */
@@ -219,13 +230,6 @@ aside h4{
         width: 70%;
     }
 
-    aside{
-        width: 50%;
-        height: auto;
-        overflow-y: inherit;
-        margin-top: 15px;
-    }
-
     .article-img_container img {
         width: 100%;
     }
@@ -238,16 +242,23 @@ aside h4{
         font-size: 0.8rem;
     }
 
-    .comment-form{
-        align-items: inherit;
-    }
-
     .article-btn-container a {
         padding: 15px 35px;
     }
 
     .article-btn-container a:hover{
         padding: 15px 42px;
+    }
+
+    aside{
+        width: 50%;
+        height: auto;
+        overflow-y: inherit;
+        margin: 30px 0;
+    }
+
+    .user-comments_box{
+        width: 60%;
     }
 }
 
@@ -324,7 +335,7 @@ aside h4{
         font-size: 1rem;
     }
 
-    .form-sendbox textarea{
+    .form-sendbox textarea, .no-comment-text{
         font-size: 0.8rem;
     }
 

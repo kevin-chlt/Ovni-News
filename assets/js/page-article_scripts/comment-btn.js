@@ -25,9 +25,9 @@ const showSucessMessage = () => {
     } else {
         helpText.style.background = '#D83A56';
     }
-    setTimeout( () => {
-        helpText.remove();
-    }, 5000);
+    helpText.style.transition = 'all 1.5s';
+    setTimeout(() => {helpText.style.opacity = '0';}, 4000)
+    setTimeout(() => {helpText.remove();}, 5000);
 }
 showSucessMessage();
 

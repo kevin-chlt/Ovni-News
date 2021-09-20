@@ -104,6 +104,7 @@ const findBtn = (btn, category) => {
     for (let i = 0; i < btnContainer.children.length; i++) {
         if(btn.children[i].classList[1] === category ){
             btn.children[i].style.background = findColor(category);
+            btn.children[i].style.color = '#ffffff';
         }
     }
 }

@@ -15,7 +15,7 @@
     <link rel="icon" type="image/ico" href="assets/images/favicon.ico"/>
     <title> <?php echo ucfirst($article->getTitle()); ?>  | L'OVNI  </title>
     <link href="assets/css/header_viewStyle.css" rel="stylesheet" />
-    <link rel="stylesheet" href="assets/css/pageArticle_viewStyle.css">
+    <link href="assets/css/pageArticle_viewStyle.css" rel="stylesheet" />
     <script src="assets/js/header_scripts/btn-function.js" defer></script>
     <script src="assets/js/page-article_scripts/comment-btn.js" defer></script>
 </head>
@@ -72,7 +72,11 @@
 
         <h4>Les derniers commentaires :</h4>
 
-        <?php for($i = 0; $i < count($comments); $i++){
+        <?php
+        if(count($comments) === 0) {
+            echo '<span class="no-comment-text">Il n\'y a pas de commentaire, soyez le premier à l\'écrire !</span>';
+        }
+        for($i = 0; $i < count($comments); $i++){
            echo '<div class="user-comments_box">
                 <span class="username"> '.ucfirst($user->getUser($comments[$i]['user_id'])->getFirst_name()).' '.ucfirst($user->getUser($comments[$i]['user_id'])->getLast_name()).'</span>
                 <span> '.$comments[$i]['content'].' </span>
@@ -82,5 +86,8 @@
         ?>
     </aside>
 </main>
+<footer>
+    <?php include 'Vues/footer_view.php' ; ?>
+</footer>
 </body>
 </html>

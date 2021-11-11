@@ -11,6 +11,7 @@ $dataManager = new ManageData($dsn, $authorManager);
 session_start();
 
 
+
     if($_GET['author'] > 0 && ctype_digit($_GET['author'])) {
         $list = $articleManager->listArticles($_GET['author'],'author', $_GET['limit'], $_GET['page'] );
         $authorList = $authorManager->getAuthorList();

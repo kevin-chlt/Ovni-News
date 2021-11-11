@@ -34,8 +34,8 @@
 <main>
     <aside>
         <div class="container-filter_nbrPerPage">
-            <label for="limit">Articles</label>
             <select name="limit" id="numberPerPage">
+                <option value="0">Nombre d'article</option>
                 <option value="10">10</option>
                 <option value="20">20</option>
                 <option value="30">30</option>
@@ -58,7 +58,7 @@
         echo '
            <article class="container-list">
                <img src="'.$list[$i]['urlToImage'].'" alt="image article">
-               <a  href="page-article.php?id='.$list[$i]['id'].'">'.ucfirst($list[$i]['title']).'</a>
+               <a class="article-title" href="page-article.php?id='.$list[$i]['id'].'">'.ucfirst($list[$i]['title']).'</a>
                '.$dataManager->showManageButtonAdmin($list[$i]['id']).'
            </article>
                 ';

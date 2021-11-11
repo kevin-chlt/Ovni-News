@@ -38,21 +38,28 @@ aside {
     margin-top: 12px;
     border-radius: 5px;
     width: 70%;
+    position: relative;
 }
 
-.container-list:hover{
-    font-weight: bold;
-}
+.container-list:hover{font-weight: bold;}
 
 
-.container-list a{
+.container-list .article-title, .container-list .remove-link{
     text-decoration: none;
     font-size: 1.3rem;
     font-family: Open-Sans, serif;
     color: #D83A56;
-    margin-left: 30px;
 }
 
+.article-title{
+    margin-left: 30px;
+    width: 70%;
+}
+
+.remove-link{
+    position: absolute;
+    right: 10px;
+}
 
 .container-list img{
     border-radius: 5px 0 0 5px;
@@ -116,17 +123,19 @@ aside {
     .container-list{
         width: 100%;
         height: auto;
-    }
-
-    .container-list a{
-        margin-left: 15px;
-        font-size: 1.2rem;
+        position: relative;
     }
 
     .container-list img{
         height: 70px;
         width: 100px;
     }
+
+    .container-list .article-title, .container-list .remove-link{
+        margin-left: 15px;
+        font-size: 1.2rem;
+    }
+
 
     .btn-retour_text{
         font-size: 0.9rem;
@@ -137,7 +146,14 @@ aside {
     }
 }
 
-@media screen and (max-width: 720px){aside{ width: 100%;}}
+@media screen and (max-width: 720px){
+    aside{
+        width: 100%;
+    }
+    .container-list .article-title{
+        width: 60%;
+    }
+}
 
 @media screen and (max-width: 550px) {
     aside{
@@ -149,21 +165,22 @@ aside {
         width: 170px;
     }
 
-    .container-list{
-        height: 90px;
-    }
-
     .container-list:hover{
         font-weight: normal;
     }
 
-    .container-list a{
-        font-size: 1.1rem;
-        padding: 5px 0;
+    .container-list .article-title{
+        font-size: 1rem;
+        padding: 5px;
+        margin: 0;
+        width: 100%;
     }
+
+    .remove-link{display:none;}
 
     .container-list img{
         height: 100%;
+        margin: auto 0;
     }
 
     .btn-retour_text:hover{

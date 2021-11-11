@@ -14,7 +14,7 @@ if (author.value === ''){
 }
 
 numberPerPage.addEventListener('change' , () => {
-    if (category !== null) {
+    if (category !== null) { // declare in header-script/btn-funcnion.js
         document.location.href = `index.php?category=${category}&page=1&limit=${numberPerPage.value}`;
     } else {
         document.location.href = `search_article.php?author=${author.value}&page=1&limit=${numberPerPage.value}`;

@@ -9,7 +9,7 @@ class ApiCaller
         if (!in_array($category, $categories)) {
             throw new Exception('Oops ! La page demandée n\'existe pas !');
         }                                                                                                     //VOTRE CLE API ICI//
-        $url = 'https://newsapi.org/v2/top-headlines?country=fr&category=' . $category . '&pageSize=20&language=fr&apiKey=';
+        $url = 'https://newsapi.org/v2/top-headlines?country=fr&category=' . $category . '&pageSize=20&language=fr&apiKey=1b26798b84c640c08bd4cf01c267e6a1';
         $ressource = fopen($url, 'r');
 
         if (!is_resource($ressource)){

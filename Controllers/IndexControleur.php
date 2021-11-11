@@ -2,39 +2,48 @@
 
 class IndexControleur
 {
-    public function getIndexPage () {
-        require_once('Vues/index.php');
-    }
 
+    protected int $limit = 10;
+    protected int $page = 1;
+    protected string $dbColumn;
+    protected $searchItem;
 
-    public function getArticlesList (Articles $articleManager, ApiCaller $apiCaller, ManageData $dataManager, Author $author) {
+    public function getMethodForApiData (ApiCaller $apiCaller, ManageData $dataManager)
+    {
         $cleanApiData = $apiCaller->getDataFromApi($_GET['category']);
         $dataManager->noAddDoubleData($cleanApiData);
-        $list = $articleManager->listArticles($_GET['category'], 'category');
-        $pagination = $dataManager->getPagination('index', 'category', $_GET['category']);
+    }
+
+    public function getArticlesList (Articles $articleManager, ManageData $dataManager, Author $author) {
+        $list = $articleManager->listArticles($this->searchItem, $this->dbColumn, $this->limit, $this->page);
+        $pagination = $dataManager->getPagination($this->dbColumn, $this->searchItem, $this->limit);
         $authorList = $author->getAuthorList();
         require_once 'Vues/listeArticles_view.php';
     }
 
-
-    public function getArticlesListWithLimit (Articles $articleManager, Author $author, ManageData $dataManager, int $page = 1)
+    public function setLimit(int $limit): void
     {
-        if ($_GET['limit'] > 0 && is_numeric($_GET['limit']) && $_GET['page'] > 0 && is_numeric($_GET['page'])){
-
-        $list = $articleManager->listArticles($_GET['category'],'category', $_GET['limit'], $page);
-        $pagination = $dataManager->getPagination('index', 'category', $_GET['category'], $_GET['limit']);
-        $authorList = $author->getAuthorList();
-
-        require_once 'Vues/listeArticles_view.php';
-        } else {
-            throw New Exception('Page introuvable');
-        }
-
+         $this->limit = $limit;
+         if($limit === 0) {
+             $this->limit = 10;
+         }
     }
 
+    public function setPage(int $page): void
+    {
+        $this->page = $page;
+        if($page === 0) {
+            $this->page = 1;
+        }
+    }
 
+    public function setDbColumn(string $dbColumn): void
+    {
+        $this->dbColumn = $dbColumn;
+    }
 
-
-
-
+    public function setSearchItem($searchItem): void
+    {
+        $this->searchItem = $searchItem;
+    }
 }

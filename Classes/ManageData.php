@@ -51,7 +51,7 @@ class ManageData
     }
 
 
-    public function getPagination(string $page, string $column, $searchItem , int $limit = 10) : string
+    public function getPagination(string $column, $searchItem , int $limit) : string
     {
         $stmt = $this->pdo->prepare('SELECT COUNT(id) as count FROM articles WHERE '.$column.' = ?');
         $stmt->bindValue(1, $searchItem);
@@ -60,7 +60,7 @@ class ManageData
 
         ob_start();
         for ($i = 0; $i < ((int) $countItem['count'] / $limit) ; $i ++) {
-            echo '<a href="'.$page.'.php?'.$column.'='.$searchItem .'&page='.($i+1).'&limit='.($limit).'">'.($i+1).'</a>';
+            echo '<a href="index.php?'.$column.'='.$searchItem .'&page='.($i+1).'&limit='.($limit).'">'.($i+1).'</a>';
         }
         return ob_get_clean();
     }
@@ -69,7 +69,7 @@ class ManageData
     public function showManageButtonAdmin(int $id) : ?string
     {
         if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] === true) {
-            return '<a href="admin.php?remove-article='.$id.'">Supprimer</a>';
+            return '<a class="remove-link" href="admin.php?remove-article='.$id.'">Supprimer</a>';
         } else {
             return null;
         }

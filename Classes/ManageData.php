@@ -15,13 +15,15 @@ class ManageData
 
     private function addArticlesInDatabase(array $content): void
     {
+
         for ($i = 0; $i < count($content); $i++) {
+            var_dump($content[$i]['title']);
             $publishAt = new DateTime($content[$i]['publishedAt']); // transforme la date pour HEROKU //
-            $requete = 'INSERT INTO articles(title, description, urlToImage, publishedAt, url , category, author) 
+            $request = 'INSERT INTO articles(title, description, urlToImage, publishedAt, url , category, author) 
             VALUES (?, ?, ?, ?,? , ?, ?);';
-            $stmt = $this->pdo->prepare($requete);
-            $stmt->bindValue(1, htmlspecialchars_decode($content[$i]['title'], ENT_HTML5));
-            $stmt->bindValue(2, htmlspecialchars_decode($content[$i]['description'], ENT_HTML5));
+            $stmt = $this->pdo->prepare($request);
+            $stmt->bindValue(1, $content[$i]['title']);
+            $stmt->bindValue(2, $content[$i]['description'], ENT_HTML5);
             $stmt->bindValue(3, $content[$i]['urlToImage']);
             $stmt->bindValue(4, $publishAt->format('Y-m-d H:m:s'));
             $stmt->bindValue(5, $content[$i]['url']);
@@ -59,7 +61,7 @@ class ManageData
         $countItem = $stmt->fetch(PDO::FETCH_ASSOC);
 
         ob_start();
-        for ($i = 0; $i < ((int) $countItem['count'] / $limit) ; $i ++) {
+        for ($i = 0; $i < ((int) $countItem['count'] / $limit) ; $i++) {
             echo '<a href="index.php?'.$column.'='.$searchItem .'&page='.($i+1).'&limit='.($limit).'">'.($i+1).'</a>';
         }
         return ob_get_clean();

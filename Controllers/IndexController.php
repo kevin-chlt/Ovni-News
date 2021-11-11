@@ -1,6 +1,6 @@
 <?php
 
-class IndexControleur
+class IndexController
 {
 
     protected int $limit = 10;
@@ -14,7 +14,8 @@ class IndexControleur
         $dataManager->noAddDoubleData($cleanApiData);
     }
 
-    public function getArticlesList (Articles $articleManager, ManageData $dataManager, Author $author) {
+    public function getArticlesList (Articles $articleManager, ManageData $dataManager, Author $author)
+    {
         $list = $articleManager->listArticles($this->searchItem, $this->dbColumn, $this->limit, $this->page);
         $pagination = $dataManager->getPagination($this->dbColumn, $this->searchItem, $this->limit);
         $authorList = $author->getAuthorList();

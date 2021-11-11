@@ -18,6 +18,7 @@
     <script src="assets/js/header_scripts/btn-function.js" defer></script>
     <script src="assets/js/list-article_scripts/filter_numberPerPage.js" defer></script>
     <script src="assets/js/list-article_scripts/pagination.js" defer></script>
+    <script src="assets/js/list-article_scripts/filter_authors.js" defer></script>
     <title><?php
     if(isset($_GET['category'])){
         echo 'Catégorie '.ucfirst($_GET['category']).'  | L\'OVNI';

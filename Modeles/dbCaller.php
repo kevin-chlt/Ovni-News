@@ -7,7 +7,7 @@ try {
     $hostname = 'localhost';
     $port = '8889';
 
-    $dsn = new PDO("mysql:host=$hostname;port=$port;dbname=$database", $username, $password);
+    $dsn = new PDO("mysql:host=$hostname;port=$port;charset=utf8mb4;dbname=$database", $username, $password);
 }
 catch(PDOException $e) {
     echo "Un soucis est apparu ! Veuillez réessayer plus tard !";

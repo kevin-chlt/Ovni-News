@@ -1,27 +1,24 @@
 //  EVENT CREATION DU LIENS POUR LE FILTRE NOMBRE PAR PAGE  //
-
 const numberPerPage = document.getElementById('numberPerPage');
-numberPerPage.value = new URL(window.location.href).searchParams.get('limit');
-const author = document.getElementById('authorLink');
-author.value = new URL(window.location.href).searchParams.get('author');
+let limitParams = new URL(window.location.href).searchParams.get('limit');
 
-// SI AUCUNE DONNEES GET[LIMIT] ALORS SELECT = 10 //
-if(numberPerPage.value === '') {
-    numberPerPage.value = 10;
-}
-if (author.value === ''){
-    author.value = 0;
-}
+numberPerPage.value = limitParams;
+// If no limit defined, display 'Nombre d'article"
+limitParams === null ? numberPerPage.value = '0' : null
 
-numberPerPage.addEventListener('change' , () => {
-    if (category !== null) { // declare in header-script/btn-funcnion.js
-        document.location.href = `index.php?category=${category}&page=1&limit=${numberPerPage.value}`;
+const numberPerPageFunction = () => {
+    if (numberPerPage.value === '0') {
+        if(authorParams) {
+            document.location.href = `index.php?category=general&page=1&limit=10`;
+            return;
+        }
+        document.location.href = `index.php?category=${category}&page=1&limit=10`;
+
+    } else if(category === null) { // We are in author search
+        document.location.href = `index.php?author=${author.value}&page=1&limit=${numberPerPage.value}`;
     } else {
-        document.location.href = `search_article.php?author=${author.value}&page=1&limit=${numberPerPage.value}`;
+        document.location.href = `index.php?category=${category}&page=1&limit=${numberPerPage.value}`;
     }
-})
+}
 
-author.addEventListener('change', () => {
-    document.location.href = `search_article.php?author=${author.value}&page=1&limit=${numberPerPage.value}`;
-});
-
+numberPerPage.addEventListener('change', numberPerPageFunction)

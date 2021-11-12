@@ -15,9 +15,7 @@ class ManageData
 
     private function addArticlesInDatabase(array $content): void
     {
-
         for ($i = 0; $i < count($content); $i++) {
-            var_dump($content[$i]['title']);
             $publishAt = new DateTime($content[$i]['publishedAt']); // transforme la date pour HEROKU //
             $request = 'INSERT INTO articles(title, description, urlToImage, publishedAt, url , category, author) 
             VALUES (?, ?, ?, ?,? , ?, ?);';
@@ -28,7 +26,7 @@ class ManageData
             $stmt->bindValue(4, $publishAt->format('Y-m-d H:m:s'));
             $stmt->bindValue(5, $content[$i]['url']);
             $stmt->bindValue(6, $_GET['category']);
-            $stmt->bindValue(7, ($this->author->getIDAuthor($content[$i]['source']['name'])), PDO::PARAM_INT);
+            $stmt->bindValue(7, $this->author->getIDAuthor($content[$i]['source']['name']), PDO::PARAM_INT);
             $stmt->execute();
         }
     }
@@ -80,7 +78,7 @@ class ManageData
     public function removeArticle (int $id): string
     {
         foreach ($this->pdo->query('SELECT MAX(id) as max FROM articles') as $item){
-            if($id >= $item['max']){
+            if($id > $item['max']){
                 throw new Exception('ID non existant en base de donnée');
             }
         }
@@ -88,7 +86,7 @@ class ManageData
         $stmt = $this->pdo->prepare('DELETE FROM articles WHERE id = ?');
         $stmt->bindValue(1, $id, PDO::PARAM_INT);
         $stmt->execute();
-        return 'Suppression de l\'article effectué avec succés, <a href="javascript:history.go(-1)"> Retour à la page précédente</a>';
+        return 'Suppression de l\'article effectué avec succès, <a href="javascript:history.go(-2)"> Retour à la page précédente</a>';
     }
 }
 

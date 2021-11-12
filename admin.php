@@ -2,9 +2,11 @@
 
 require 'Modeles/dbCaller.php';
 require_once 'Classes/ManageData.php';
+require_once 'Classes/Author.php';
 
 /** @var void|PDO $dsn */
-$pdo = new ManageData($dsn);
+$author = new Author($dsn);
+$pdo = new ManageData($dsn, $author);
 session_start();
 
 try {

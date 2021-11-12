@@ -24,6 +24,11 @@ try {
     }
 
     if(isset($_GET['category'])){
+        $controller->setDbColumn('category');
+        $controller->setSearchItem($_GET['category']);
+        $controller->getMethodForApiData($api, $dataManager);
+        $controller->getArticlesList($articleManager, $dataManager, $author);
+
         if(isset($_GET['limit']) && is_numeric($_GET['limit'])) {
             $controller->setLimit($_GET['limit']);
         }
@@ -31,16 +36,9 @@ try {
         if (isset($_GET['page']) && is_numeric($_GET['page'])){
             $controller->setPage($_GET['page']);
         }
-
-        $controller->getMethodForApiData($api, $dataManager);
-        $controller->setDbColumn('category');
-        $controller->setSearchItem($_GET['category']);
-        $controller->getArticlesList($articleManager, $dataManager, $author);
     }
     elseif(isset($_GET['author']) && $_GET['author'] >= 0 && is_numeric($_GET['author'])){
-        if ($_GET['author'] == 0) {
-            header("Location: index.php?category=general");
-        }
+
         $controller->setDbColumn('author');
         $controller->setSearchItem($_GET['author']);
         $controller->getArticlesList($articleManager, $dataManager, $author);

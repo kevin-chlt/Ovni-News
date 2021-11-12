@@ -13,7 +13,7 @@ class ApiCaller
         $ressource = fopen($url, 'r');
 
         if (!is_resource($ressource)){
-            throw New Exception('Une erreur est survenue');
+            throw New Exception('Une erreur est survenue.');
         }
 
         $ressourceJSON = fgets($ressource);

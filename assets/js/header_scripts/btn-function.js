@@ -3,7 +3,7 @@ const menu = document.getElementById('menu');
 const hamburger = document.getElementById('btn-category');
 const btnContainer = document.querySelector('.header-nav');
 
-// ADD EVENT LISTENER ON FORM IMAGES //
+// ADD EVENT LISTENER ON BUTTON FOR SUBMIT THE SUBSCRIBE FORM  //
 if(document.getElementById('submit-btn') !== null){
     const submitBtn = document.getElementById('submit-btn');
     submitBtn.addEventListener('click', () => {
@@ -80,8 +80,7 @@ window.addEventListener('resize', () => {
 
 // ADD BACKGROUND COLOR TO THE CATEGORY IN THE DOM WITH URL PARAMS //
 const category  = new URL(window.location.href).searchParams.get('category');
-const color =
-    {
+const color = {
         'business' : '#1B1A17',
         'general' : '#98DED9',
         'science' : '#9DAD7F',
@@ -99,7 +98,6 @@ const findColor = (category) => {
     }
 }
 
-
 const findBtn = (btn, category) => {
     for (let i = 0; i < btnContainer.children.length; i++) {
         if(btn.children[i].classList[1] === category ){
@@ -114,7 +112,7 @@ const findBtn = (btn, category) => {
 if(category === null ){
     if(document.getElementById('linkWithCategory') !== null) {
         // WE'RE IN DETAIL PAGE //
-        const link = document.getElementById('linkWithCategory');
+        const link = document.getElementById('linkWithCategory'); // LINK IN THE NEXT BUTTON
         const category2 = new URL(link.href).searchParams.get('category');
         findBtn(btnContainer, category2);
     }

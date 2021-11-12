@@ -3,10 +3,10 @@
 class IndexController
 {
 
-    protected int $limit = 10;
-    protected int $page = 1;
-    protected string $dbColumn;
-    protected $searchItem;
+    private int $limit = 10;
+    private int $page = 1;
+    private string $dbColumn;
+    private $searchItem;
 
     public function getMethodForApiData (ApiCaller $apiCaller, ManageData $dataManager)
     {

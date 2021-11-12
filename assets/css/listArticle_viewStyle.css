@@ -26,10 +26,6 @@ aside {
     margin-bottom: 5px;
 }
 
-.container-filter_nbrPerPage select{
-    width: 50px;
-}
-
 .container-list{
     display: flex;
     align-items: center;
